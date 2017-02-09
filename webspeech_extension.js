@@ -88,9 +88,8 @@ new (function() {
                   if (event.results[i].isFinal) {
                     final_transcript += event.results[i][0].transcript;
                     console.log('About to callback. final_transcript = ' + final_transcript);
-                    callback(final_transcript);
+                    //callback(final_transcript);
                     console.log('clearing final_transcript.');
-                    final_transcript = '';
                   } else {
                     interim_transcript += event.results[i][0].transcript;
                     console.log('interim_transcript = ' + interim_transcript);
@@ -107,12 +106,13 @@ new (function() {
                 recognizing = false;
                 if (ignore_onend) {
                   final_transcript = 'No speech detected';
-                  return;
+                  //return;
                 }
                 if (!final_transcript) {
                   final_transcript = 'No speech detected';
-                  return;
+                  //return;
                 }
+                callback(final_transcript);
               };
  
             
