@@ -35,6 +35,7 @@ new (function() {
     ext.get_web_speech_transcription = function(callback) {
         transcribed_text = 'none detected';
         console.log('Transcribed text: ' + transcribed_text);
+        callback(transcribed_text);
     };
 
     // Block and block menu descriptions
@@ -44,7 +45,8 @@ new (function() {
             ['w', 'wait for 5 sec', 'wait_five'],
             ['R', 'Google speech to text', 'get_web_speech_transcription'],
 
-        ]
+        ],
+        url: 'https://cloud.google.com/speech/'
     };
 
     // Register the extension
