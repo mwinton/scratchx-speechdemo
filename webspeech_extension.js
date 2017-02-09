@@ -32,7 +32,8 @@ new (function() {
         }, wait*1000);
     };
 
-    ext.get_web_speech_transcription = function(callback) {
+    ext.get_web_speech_transcription = function() {
+//    ext.get_web_speech_transcription = function(callback) {
         var final_transcript = '';
         var recognizing = false;
         var ignore_onend;
@@ -105,7 +106,8 @@ new (function() {
               };
         }
         
-        callback(final_transcript);
+        return(final_transcript);
+        //callback(final_transcript);
         
     };
 
@@ -114,7 +116,8 @@ new (function() {
         blocks: [
             ['w', 'wait for random time', 'wait_random'],
             ['w', 'wait for 5 sec', 'wait_five'],
-            ['R', 'Google speech to text', 'get_web_speech_transcription'],
+            ['r', 'Google speech to text', 'get_web_speech_transcription'],
+//            ['R', 'Google speech to text', 'get_web_speech_transcription'],
 
         ],
         url: 'https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API'
