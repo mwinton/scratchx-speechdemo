@@ -24,7 +24,7 @@ new (function() {
         }, wait*1000);
     };
 
-    ext.wait_5_sec = function(callback) {
+    ext.wait_five = function(callback) {
         wait = 5;
         console.log('Waiting for ' + wait + ' seconds');
         window.setTimeout(function() {
@@ -36,7 +36,7 @@ new (function() {
     var descriptor = {
         blocks: [
             ['w', 'wait for random time', 'wait_random'],
-            ['w', 'wait for 5 sec’, 'wait_5_sec’],
+            ['w', 'wait for 5 sec’, 'wait_five’],
         ]
     };
 
