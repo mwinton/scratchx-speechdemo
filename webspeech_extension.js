@@ -37,7 +37,7 @@ new (function() {
     };
 
     ext.get_web_speech_transcription = function(callback) {
-        console.log('entering get_web_speec_transcription function');
+        console.log('entering get_web_speech_transcription function');
         var final_transcript = '';
         var recognizing = false;
         var ignore_onend;
@@ -59,6 +59,7 @@ new (function() {
               };
             
               recognition.onerror = function(event) {
+                console.log('Entered onerror function.');
                 if (event.error == 'no-speech') {
                   console.log('No speech detected');
                   ignore_onend = true;
@@ -75,19 +76,6 @@ new (function() {
                     //showInfo('info_denied');
                   }
                   ignore_onend = true;
-                }
-              };
-            
-              recognition.onend = function() {
-                console.log('Finished recognizing');
-                recognizing = false;
-                if (ignore_onend) {
-                  final_transcript = 'No speech detected';
-                  return;
-                }
-                if (!final_transcript) {
-                  final_transcript = 'No speech detected';
-                  return;
                 }
               };
             
@@ -108,9 +96,24 @@ new (function() {
                 //final_span.innerHTML = linebreak(final_transcript);
                 //interim_span.innerHTML = linebreak(interim_transcript);
                 console.log('do we ever get here?');
+                final_transcript='';
+                  
               };
+            
+              recognition.onend = function() {
+                console.log('Entered onend function. ignore_onend= ' + ignore_onend);
+                recognizing = false;
+                if (ignore_onend) {
+                  final_transcript = 'No speech detected';
+                  return;
+                }
+                if (!final_transcript) {
+                  final_transcript = 'No speech detected';
+                  return;
+                }
+              };
+            
         }
-        
         
     };
 
