@@ -36,8 +36,8 @@ new (function() {
        callback('dummy string');
     };
 
-//    ext.get_web_speech_transcription = function() {
     ext.get_web_speech_transcription = function(callback) {
+        console.log('entering get_web_speec_transcription function');
         var final_transcript = '';
         var recognizing = false;
         var ignore_onend;
@@ -107,11 +107,10 @@ new (function() {
                 //final_transcript = capitalize(final_transcript);
                 //final_span.innerHTML = linebreak(final_transcript);
                 //interim_span.innerHTML = linebreak(interim_transcript);
+                console.log('do we ever get here?');
               };
         }
         
-        //return(final_transcript);
-        //callback(final_transcript);
         
     };
 
@@ -120,7 +119,6 @@ new (function() {
         blocks: [
             ['w', 'wait for random time', 'wait_random'],
             ['w', 'wait for 5 sec', 'wait_five'],
-//            ['r', 'Google speech to text', 'get_web_speech_transcription'],
             ['R', 'Google speech to text', 'get_web_speech_transcription'],
             ['R', 'Return dummy string', 'return_dummy_string'],
 
