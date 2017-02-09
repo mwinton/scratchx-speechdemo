@@ -87,6 +87,8 @@ new (function() {
                     final_transcript += event.results[i][0].transcript;
                     console.log('About to callback. final_transcript = ' + final_transcript);
                     callback(final_transcript);
+                    console.log('clearing final_transcript.');
+                    final_transcript = '';
                   } else {
                     interim_transcript += event.results[i][0].transcript;
                     console.log('interim_transcript = ' + interim_transcript);
@@ -95,8 +97,6 @@ new (function() {
                 //final_transcript = capitalize(final_transcript);
                 //final_span.innerHTML = linebreak(final_transcript);
                 //interim_span.innerHTML = linebreak(interim_transcript);
-                console.log('do we ever get here?');
-                //final_transcript='';
                   
               };
             
