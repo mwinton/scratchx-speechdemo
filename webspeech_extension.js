@@ -36,10 +36,10 @@ new (function() {
     var descriptor = {
         blocks: [
             ['w', 'wait for random time', 'wait_random'],
-            ['w', 'wait for 5 sec’, 'wait_five’],
+            ['w', 'wait for 5 sec', 'wait_five'],
         ]
     };
 
     // Register the extension
-    ScratchExtensions.register(‘Web speech extension', descriptor, ext);
+    ScratchExtensions.register('Web speech extension', descriptor, ext);
 })();
