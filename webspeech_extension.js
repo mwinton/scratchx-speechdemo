@@ -99,11 +99,11 @@ new (function() {
                 //final_span.innerHTML = linebreak(final_transcript);
                 //interim_span.innerHTML = linebreak(interim_transcript);
               };
-            }
         }
         
         console.log('Transcribed text being returned to ScratchX: ' + final_transcript);
         callback(final_transcript);
+        
     };
 
     // Block and block menu descriptions
