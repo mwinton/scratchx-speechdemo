@@ -33,7 +33,7 @@ new (function() {
     };
 
     ext.get_web_speech_transcription = function(callback) {
-        var final_transcript = 'none detected';
+        var final_transcript = '';
         var recognizing = false;
         var ignore_onend;
         var start_timestamp;
@@ -77,9 +77,11 @@ new (function() {
                 console.log('Finished recognizing');
                 recognizing = false;
                 if (ignore_onend) {
+                  final_transcript = 'No speech detected';
                   return;
                 }
                 if (!final_transcript) {
+                  final_transcript = 'No speech detected';
                   return;
                 }
               };
