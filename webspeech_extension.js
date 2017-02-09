@@ -96,7 +96,7 @@ new (function() {
                 //final_span.innerHTML = linebreak(final_transcript);
                 //interim_span.innerHTML = linebreak(interim_transcript);
                 console.log('do we ever get here?');
-                final_transcript='';
+                //final_transcript='';
                   
               };
             
