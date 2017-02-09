@@ -114,7 +114,7 @@ new (function() {
             ['R', 'Google speech to text', 'get_web_speech_transcription'],
 
         ],
-        url: 'https://cloud.google.com/speech/'
+        url: 'https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API'
     };
 
     // Register the extension
