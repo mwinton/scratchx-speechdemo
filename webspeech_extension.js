@@ -97,7 +97,8 @@ new (function() {
                 for (var i = event.resultIndex; i < event.results.length; ++i) {
                   if (event.results[i].isFinal) {
                     final_transcript += event.results[i][0].transcript;
-                    console.log('final_transcript = ' + final_transcript);
+                    console.log('About to callback. final_transcript = ' + final_transcript);
+                    callback(final_transcript);
                   } else {
                     interim_transcript += event.results[i][0].transcript;
                     console.log('interim_transcript = ' + interim_transcript);
@@ -106,12 +107,11 @@ new (function() {
                 //final_transcript = capitalize(final_transcript);
                 //final_span.innerHTML = linebreak(final_transcript);
                 //interim_span.innerHTML = linebreak(interim_transcript);
-                console.log('Transcribed text being returned to ScratchX: ' + final_transcript);
               };
         }
         
         //return(final_transcript);
-        callback(final_transcript);
+        //callback(final_transcript);
         
     };
 
