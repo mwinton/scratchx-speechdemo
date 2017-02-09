@@ -33,9 +33,7 @@ new (function() {
     };
     
     ext.return_dummy_string = function(callback) {
-       console.log('entering return_dummy_string function. about to callback.');
        callback('dummy string');
-       console.log('does this line in return_dummy_string ever get called?');
     };
 
     ext.get_web_speech_transcription = function(callback) {
@@ -89,7 +87,6 @@ new (function() {
                     final_transcript += event.results[i][0].transcript;
                     console.log('About to callback. final_transcript = ' + final_transcript);
                     callback(final_transcript);
-                    console.log('clearing final_transcript.');
                   } else {
                     interim_transcript += event.results[i][0].transcript;
                     console.log('interim_transcript = ' + interim_transcript);
