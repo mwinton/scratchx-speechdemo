@@ -85,16 +85,17 @@ new (function() {
               };
             
               recognition.onresult = function(event) {
+                console.log('entered onresult function');
                 var interim_transcript = '';
                 for (var i = event.resultIndex; i < event.results.length; ++i) {
                   if (event.results[i].isFinal) {
                     final_transcript += event.results[i][0].transcript;
+                    console.log('final_transcript = ' + final_transcript);
                   } else {
                     interim_transcript += event.results[i][0].transcript;
+                    console.log('interim_transcript = ' + interim_transcript);
                   }
-                }
-                console.log('final_transcript = ' + final_transcript);
-                  
+                }                  
                 //final_transcript = capitalize(final_transcript);
                 //final_span.innerHTML = linebreak(final_transcript);
                 //interim_span.innerHTML = linebreak(interim_transcript);
