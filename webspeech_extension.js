@@ -33,7 +33,9 @@ new (function() {
     };
     
     ext.return_dummy_string = function(callback) {
+       console.log('entering return_dummy_string function. about to callback.');
        callback('dummy string');
+       console.log('does this line in return_dummy_string ever get called?');
     };
 
     ext.get_web_speech_transcription = function(callback) {
