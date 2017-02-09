@@ -32,7 +32,8 @@ new (function() {
         }, wait*1000);
     };
 
-    ext.get_web_speech_transcription = function(transcribed_text, callback) {
+    ext.get_web_speech_transcription = function(callback) {
+        transcribed_text = 'none detected';
         console.log('Transcribed text: ' + transcribed_text);
     };
 
@@ -41,7 +42,7 @@ new (function() {
         blocks: [
             ['w', 'wait for random time', 'wait_random'],
             ['w', 'wait for 5 sec', 'wait_five'],
-            ['R', 'get text from microphone', 'get_web_speech_transcription', 'None detected'],
+            ['R', 'Google speech -> text', 'get_web_speech_transcription'],
 
         ]
     };
