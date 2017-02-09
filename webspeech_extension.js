@@ -48,5 +48,5 @@ new (function() {
     };
 
     // Register the extension
-    ScratchExtensions.register('Web speech extension', descriptor, ext);
+    ScratchExtensions.register('Google web speech extension', descriptor, ext);
 })();
