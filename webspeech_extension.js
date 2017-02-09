@@ -33,17 +33,77 @@ new (function() {
     };
 
     ext.get_web_speech_transcription = function(callback) {
-        transcribed_text = 'none detected';
+        var final_transcript = 'none detected';
+        var recognizing = false;
+        var ignore_onend;
+        var start_timestamp;
 
         if (!('webkitSpeechRecognition' in window)) {
             console.log('Browser does NOT have Web Speech API support');
-            upgrade();
         } else {
-            console.log('Browser does have Web Speech API support');
+              console.log('Browser DOES have Web Speech API support');
+              var recognition = new webkitSpeechRecognition();
+              recognition.continuous = false; // stop and send for processing when user pauses
+              recognition.interimResults = false; // wait until final transcription is ready
+              recognition.lang = 'en-US'; // if not specified, defaults to page setting
+              recognition.start();
+            
+              recognition.onstart = function() {
+                recognizing = true;
+                console.log('Ready for user to start speaking');
+              };
+            
+              recognition.onerror = function(event) {
+                if (event.error == 'no-speech') {
+                  console.log('No speech detected');
+                  ignore_onend = true;
+                }
+                if (event.error == 'audio-capture') {
+                  console.log('No microphone detected');
+                  ignore_onend = true;
+                }
+                if (event.error == 'not-allowed') {
+                  console.log('Access denied');
+                  if (event.timeStamp - start_timestamp < 100) {
+                    //showInfo('info_blocked');
+                  } else {
+                    //showInfo('info_denied');
+                  }
+                  ignore_onend = true;
+                }
+              };
+            
+              recognition.onend = function() {
+                console.log('Finished recognizing');
+                recognizing = false;
+                if (ignore_onend) {
+                  return;
+                }
+                if (!final_transcript) {
+                  return;
+                }
+              };
+            
+              recognition.onresult = function(event) {
+                var interim_transcript = '';
+                for (var i = event.resultIndex; i < event.results.length; ++i) {
+                  if (event.results[i].isFinal) {
+                    final_transcript += event.results[i][0].transcript;
+                  } else {
+                    interim_transcript += event.results[i][0].transcript;
+                  }
+                }
+                console.log('final_transcript = ' + final_transcript);
+                  
+                //final_transcript = capitalize(final_transcript);
+                //final_span.innerHTML = linebreak(final_transcript);
+                //interim_span.innerHTML = linebreak(interim_transcript);
+              };
+            }
         }
         
-        console.log('Transcribed text: ' + transcribed_text);
-        callback(transcribed_text);
+        console.log('Transcribed text being returned to ScratchX: ' + final_transcript);
+        callback(final_transcript);
     };
 
     // Block and block menu descriptions
