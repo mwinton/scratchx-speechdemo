@@ -102,7 +102,7 @@ new (function() {
                   
               };
             
-/*              recognition.onend = function() {
+              recognition.onend = function() {
                 console.log('Entered onend function. ignore_onend= ' + ignore_onend);
                 recognizing = false;
                 if (ignore_onend) {
@@ -114,7 +114,7 @@ new (function() {
                   return;
                 }
               };
- */
+ 
             
         }
         
