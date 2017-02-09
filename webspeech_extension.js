@@ -33,7 +33,8 @@ new (function() {
     };
 
     ext.get_web_speech_transcription = function(callback) {
-        transcribed_text = 'none detected';
+        //transcribed_text = 'none detected';
+        transcribed_text = 3;
         console.log('Transcribed text: ' + transcribed_text);
         callback(transcribed_text);
     };
