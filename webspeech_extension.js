@@ -32,11 +32,17 @@ new (function() {
         }, wait*1000);
     };
 
+    ext.get_web_speech_transcription = function(transcribed_text, callback) {
+        console.log('Transcribed text: ' + transcribed_text);
+    };
+
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             ['w', 'wait for random time', 'wait_random'],
             ['w', 'wait for 5 sec', 'wait_five'],
+            ['R', 'get text from microphone', 'get_web_speech_transcription', 'None detected'],
+
         ]
     };
 
