@@ -40,7 +40,7 @@ new (function() {
         console.log('entering get_web_speech_transcription function');
         var final_transcript = '';
         var recognizing = false;
-        var ignore_onend;
+        var ignore_onend = false;
         var start_timestamp;
 
         if (!('webkitSpeechRecognition' in window)) {
