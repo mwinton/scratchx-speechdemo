@@ -85,7 +85,7 @@ new (function() {
               };
             
               recognition.onresult = function(event) {
-                console.log('entered onresult function');
+                console.log('entered onresult function. Event = ' + event);
                 var interim_transcript = '';
                 for (var i = event.resultIndex; i < event.results.length; ++i) {
                   if (event.results[i].isFinal) {
