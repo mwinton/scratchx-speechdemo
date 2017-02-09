@@ -42,7 +42,7 @@ new (function() {
         blocks: [
             ['w', 'wait for random time', 'wait_random'],
             ['w', 'wait for 5 sec', 'wait_five'],
-            ['R', 'Google speech -> text', 'get_web_speech_transcription'],
+            ['R', 'Google speech to text', 'get_web_speech_transcription'],
 
         ]
     };
