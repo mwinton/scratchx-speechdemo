@@ -34,7 +34,14 @@ new (function() {
 
     ext.get_web_speech_transcription = function(callback) {
         transcribed_text = 'none detected';
-        //transcribed_text = 3;
+
+        if (!('webkitSpeechRecognition' in window)) {
+            console.log('Browser does NOT have Web Speech API support');
+            upgrade();
+        } else {
+            console.log('Browser does have Web Speech API support');
+        }
+        
         console.log('Transcribed text: ' + transcribed_text);
         callback(transcribed_text);
     };
