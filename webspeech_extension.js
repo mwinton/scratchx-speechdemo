@@ -44,7 +44,7 @@ new (function() {
             
             var msg = new SpeechSynthesisUtterance(message);
             var voices = window.speechSynthesis.getVoices();
-//            msg.voice = voices[10]; // Note: some voices don't support altering params
+//            msg.voice = voices[10]; // Note: a voice has a particular language; specifying voice isn't compatible w/ lang param
             msg.voiceURI = 'native';
             msg.volume = 1; // 0 to 1
             msg.rate = 1; // 0.1 to 10
@@ -151,6 +151,24 @@ new (function() {
 //            ['R', 'Return dummy string', 'return_dummy_string'],
             ['R', 'Google speech to text', 'get_web_speech_transcription'],
             ['w', 'Google text to speech: %s lang: %s', 'speak_text','Hello Scratcher','en-US'],
+        ],
+        menus: [
+            spokenLang: [
+                'en-US',
+                'en-CA',
+                'en-GB',
+                'en-AU',
+                'en-IN',
+                'cmn-Hans-CN',
+                'de-DE',
+                'en-AU',
+                'es-ES',
+                'es-MX',
+                'fr-FR',
+                'it-IT',
+                'ja-JP',
+                'pt-BR'
+            ]
         ],
         // about this extension link
         url: 'https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API'
