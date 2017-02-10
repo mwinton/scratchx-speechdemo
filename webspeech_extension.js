@@ -36,7 +36,7 @@ new (function() {
        callback('dummy string');
     };
 
-    ext.speak_text = function(message, callback) {
+    ext.speak_text = function(message, language, callback) {
         if (!('speechSynthesis' in window)) {
             console.log('Browser does NOT have Speech Synthesis support');
         } else {
@@ -48,8 +48,8 @@ new (function() {
             msg.voiceURI = 'native';
             msg.volume = 1; // 0 to 1
             msg.rate = 1; // 0.1 to 10
-            msg.pitch = 2; //0 to 2
-            msg.lang = 'en-US';        
+            msg.pitch = 1.8; //0 to 2
+            msg.lang = language;        
 
             msg.onend = function(e) {
               console.log('Finished speaking in ' + event.elapsedTime + ' seconds.');
@@ -150,7 +150,7 @@ new (function() {
 //            ['w', 'wait for 5 sec', 'wait_five'],
             ['R', 'Google speech to text', 'get_web_speech_transcription'],
             ['R', 'Return dummy string', 'return_dummy_string'],
-            ['w', 'Google text to speech %s', 'speak_text','Hello Scratcher'],
+            ['w', 'Google text to speech: %s lang: %s', 'speak_text','Hello Scratcher','en-US'],
         ],
         // about this extension link
         url: 'https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API'
