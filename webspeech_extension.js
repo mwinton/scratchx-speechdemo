@@ -150,9 +150,9 @@ new (function() {
 //            ['w', 'wait for 5 sec', 'wait_five'],
 //            ['R', 'Return dummy string', 'return_dummy_string'],
             ['R', 'Google speech to text', 'get_web_speech_transcription'],
-            ['w', 'Google text to speech: %s lang: %s', 'speak_text','Hello Scratcher','en-US'],
+            ['w', 'Google text to speech: %s lang: %m.spokenLang', 'speak_text','Hello Scratcher','en-US'],
         ],
-        menus: [
+        menus: {
             spokenLang: [
                 'en-US',
                 'en-CA',
@@ -169,7 +169,7 @@ new (function() {
                 'ja-JP',
                 'pt-BR'
             ]
-        ],
+        },
         // about this extension link
         url: 'https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API'
     };
