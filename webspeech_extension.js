@@ -52,7 +52,7 @@ new (function() {
             msg.lang = language;        
 
             msg.onend = function(e) {
-              console.log('Finished speaking in ' + event.elapsedTime + ' seconds.');
+              console.log('Finished speaking (' + msg + ', ' + lang + ') in ' + event.elapsedTime/1000 + ' seconds.');
             };
 
            window.speechSynthesis.speak(msg);
