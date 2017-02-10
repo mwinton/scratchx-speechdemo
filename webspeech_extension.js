@@ -148,8 +148,8 @@ new (function() {
         blocks: [
 //            ['w', 'wait for random time', 'wait_random'],
 //            ['w', 'wait for 5 sec', 'wait_five'],
+//            ['R', 'Return dummy string', 'return_dummy_string'],
             ['R', 'Google speech to text', 'get_web_speech_transcription'],
-            ['R', 'Return dummy string', 'return_dummy_string'],
             ['w', 'Google text to speech: %s lang: %s', 'speak_text','Hello Scratcher','en-US'],
         ],
         // about this extension link
