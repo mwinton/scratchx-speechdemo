@@ -150,8 +150,9 @@ new (function() {
 //            ['w', 'wait for 5 sec', 'wait_five'],
             ['R', 'Google speech to text', 'get_web_speech_transcription'],
             ['R', 'Return dummy string', 'return_dummy_string'],
-            ['w', 'Speak %s', 'speak_text','Hello Scratcher'],
+            ['w', 'Google text to speech %s', 'speak_text','Hello Scratcher'],
         ],
+        // about this extension link
         url: 'https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API'
     };
 
