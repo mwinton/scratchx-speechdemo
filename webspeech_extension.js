@@ -126,11 +126,11 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['w', 'wait for random time', 'wait_random'],
-            ['w', 'wait for 5 sec', 'wait_five'],
+//            ['w', 'wait for random time', 'wait_random'],
+//            ['w', 'wait for 5 sec', 'wait_five'],
             ['R', 'Google speech to text', 'get_web_speech_transcription'],
             ['R', 'Return dummy string', 'return_dummy_string'],
-            ['w', 'Speak', 'speak_text'],
+            ['w', 'Speak %s', 'speak_text','Hello Scratcher'],
         ],
         url: 'https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API'
     };
