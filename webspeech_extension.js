@@ -157,5 +157,5 @@ new (function() {
     };
 
     // Register the extension
-    ScratchExtensions.register('Google web speech extension', descriptor, ext);
+    ScratchExtensions.register('Google APIs extension', descriptor, ext);
 })();
