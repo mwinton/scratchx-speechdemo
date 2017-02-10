@@ -36,6 +36,12 @@ new (function() {
        callback('dummy string');
     };
 
+    ext.speak_text = function(callback) {
+       var msg = new SpeechSynthesisUtterance('Hello World');
+       window.speechSynthesis.speak(msg);
+       callback();
+    };
+
     ext.get_web_speech_transcription = function(callback) {
         console.log('entering get_web_speech_transcription function');
         var final_transcript = '';
@@ -124,7 +130,7 @@ new (function() {
             ['w', 'wait for 5 sec', 'wait_five'],
             ['R', 'Google speech to text', 'get_web_speech_transcription'],
             ['R', 'Return dummy string', 'return_dummy_string'],
-
+            ['w', 'Speak', 'speak_text'],
         ],
         url: 'https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API'
     };
