@@ -36,10 +36,30 @@ new (function() {
        callback('dummy string');
     };
 
-    ext.speak_text = function(callback) {
-       var msg = new SpeechSynthesisUtterance('Hello World');
-       window.speechSynthesis.speak(msg);
-       callback();
+    ext.speak_text = function(message, callback) {
+        if (!('speechSynthesis' in window)) {
+            console.log('Browser does NOT have Speech Synthesis support');
+        } else {
+            console.log('Browser DOES have Speech Synthesis support');
+            
+            var msg = new SpeechSynthesisUtterance(message);
+            var voices = window.speechSynthesis.getVoices();
+            msg.voice = voices[10]; // Note: some voices don't support altering params
+            msg.voiceURI = 'native';
+            msg.volume = 1; // 0 to 1
+            msg.rate = 1; // 0.1 to 10
+            msg.pitch = 2; //0 to 2
+            msg.lang = 'en-US';        
+
+            msg.onend = function(e) {
+              console.log('Finished speaking in ' + event.elapsedTime + ' seconds.');
+            };
+
+           window.speechSynthesis.speak(msg);
+        }
+        
+        callback();
+        
     };
 
     ext.get_web_speech_transcription = function(callback) {
