@@ -157,5 +157,5 @@ new (function() {
     };
 
     // Register the extension
-    ScratchExtensions.register('Google APIs extension', descriptor, ext);
+    ScratchExtensions.register('Google APIs', descriptor, ext);
 })();
