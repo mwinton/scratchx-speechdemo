@@ -4,6 +4,11 @@
 new (function() {
     var ext = this;
 
+    // Cleanup function when user clicks the stop sign
+    ext._stop = function() {
+        console.log('Stop sign has been clicked');
+    };
+    
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
