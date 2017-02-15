@@ -41,40 +41,8 @@ new (function() {
        callback('dummy string');
     };
 
-    ext.translate_text = function(gapi_key,callback) {
-       var translated_text = '';
-        <script src="https://apis.google.com/js/api.js"></script>
-        <script>
-        function gapi_start() {
-          // 2. Initialize the JavaScript client library.
-          gapi.client.init({
-            'key': '',
-            'source': 'en',
-            'target': 'de',
-            'q':
-            // clientId and scope are optional if auth is not required.
-            //'clientId': 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com',
-            //'scope': 'profile',
-          }).then(function() {
-            // 3. Initialize and make the API request.
-            return gapi.client.request({
-              'path': 'https://translation.googleapis.com/language/translate/v2',
-            })
-          }).then(function(response) {
-            console.log(response.result);
-          }, function(reason) {
-            console.log('Error: ' + reason.result.error.message);
-          });
-        };
-        
-        // 1. Load the JavaScript client library.
-        gapi.load('client', gapi_start);
-        </script>
-        
-       callback(translated_text);
-    };
 
-    ext.translate_text = function(api_key, source_text, source_lang, target_lang, callback) {
+    ext.translate_text = function(source_text, source_lang, target_lang, api_key, callback) {
         var translated_text = '';
     
         $.ajax({
