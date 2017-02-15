@@ -51,10 +51,10 @@ new (function() {
           dataType: "jsonp",
           data: {
             format: "json",
-            key: api_key,
             q: source_text,
             source: source_lang,
-            target: target_lang
+            target: target_lang,
+            key: api_key
           },
           jsonp: "json_callback",
           success: function(data) {
