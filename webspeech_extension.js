@@ -50,7 +50,6 @@ new (function() {
           url: "https://translation.googleapis.com/language/translate/v2",
           dataType: "jsonp",
           data: {
-            format: "json",
             q: source_text,
             source: source_lang,
             target: target_lang,
