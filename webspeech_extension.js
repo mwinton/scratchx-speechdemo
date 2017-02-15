@@ -41,6 +41,68 @@ new (function() {
        callback('dummy string');
     };
 
+    ext.translate_text = function(gapi_key,callback) {
+       var translated_text = '';
+        <script src="https://apis.google.com/js/api.js"></script>
+        <script>
+        function gapi_start() {
+          // 2. Initialize the JavaScript client library.
+          gapi.client.init({
+            'key': '',
+            'source': 'en',
+            'target': 'de',
+            'q':
+            // clientId and scope are optional if auth is not required.
+            //'clientId': 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com',
+            //'scope': 'profile',
+          }).then(function() {
+            // 3. Initialize and make the API request.
+            return gapi.client.request({
+              'path': 'https://translation.googleapis.com/language/translate/v2',
+            })
+          }).then(function(response) {
+            console.log(response.result);
+          }, function(reason) {
+            console.log('Error: ' + reason.result.error.message);
+          });
+        };
+        
+        // 1. Load the JavaScript client library.
+        gapi.load('client', gapi_start);
+        </script>
+        
+       callback(translated_text);
+    };
+
+    ext.translate_text = function(api_key, source_text, source_lang, target_lang, callback) {
+        var translated_text = '';
+    
+        $.ajax({
+          type: "GET",
+          url: "https://translation.googleapis.com/language/translate/v2",
+          dataType: "jsonp",
+          data: {
+            format: "json",
+            key: api_key,
+            q: source_text,
+            source: source_lang,
+            target: target_lang
+          },
+          jsonp: "json_callback",
+          success: function(data) {
+            console.log('Success getting translation data');
+            translated_text = [data.translations[0].translatedText];
+            console.log('Translation is '+translated_text);
+            callback(translated_text);
+          },
+          error: function() {
+            console.log('Error getting translation data');
+            callback(null);
+          }
+        });
+
+    }
+    
     ext.speak_text = function(message, language, callback) {
         if (!('speechSynthesis' in window)) {
             console.log('Browser does NOT have Speech Synthesis support');
@@ -156,6 +218,7 @@ new (function() {
 //            ['R', 'Return dummy string', 'return_dummy_string'],
             ['R', 'Google speech to text', 'get_web_speech_transcription'],
             ['w', 'Google text to speech: %s lang: %m.spokenLang', 'speak_text','Hello Scratcher','en-US'],
+            ['R', "Google translate: %s from: %s to: %s (Key: %s)', 'translate_text','your text','en',de','api key']
         ],
         menus: {
             spokenLang: [
@@ -176,7 +239,7 @@ new (function() {
             ]
         },
         // about this extension link
-        url: 'https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API'
+        url: 'https://cloud.google.com'
     };
 
     // Register the extension
