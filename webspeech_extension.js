@@ -57,8 +57,8 @@ new (function() {
           },
           jsonp: "json_callback",
           success: function(data) {
-            console.log('Success getting translation data');
-            translated_text = [data.translations[0].translated_text];
+            console.log('Success getting translation data. # translations: ' + data.translations.length);
+            translated_text = [data.translations[0].translatedText];
             console.log('Translation is '+translated_text);
             callback(translated_text);
           },
