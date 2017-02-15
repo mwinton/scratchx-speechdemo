@@ -48,7 +48,7 @@ new (function() {
         $.ajax({
           type: "GET",
           url: "https://translation.googleapis.com/language/translate/v2",
-          dataType: "jsonp",
+          dataType: "json",
           data: {
             q: source_text,
             source: source_lang,
