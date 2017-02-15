@@ -186,7 +186,7 @@ new (function() {
 //            ['R', 'Return dummy string', 'return_dummy_string'],
             ['R', 'Google speech to text', 'get_web_speech_transcription'],
             ['w', 'Google text to speech: %s lang: %m.spokenLang', 'speak_text','Hello Scratcher','en-US'],
-            ['R', 'Google translate: %s from: %s to: %s (Key: %s)', 'translate_text','your text','en',de','api key']
+            ['R', 'Google translate: %s from: %s to: %s (Key: %s)', 'translate_text','your text','en','de','api key']
         ],
         menus: {
             spokenLang: [
