@@ -48,14 +48,14 @@ new (function() {
         $.ajax({
           type: "GET",
           url: "https://translation.googleapis.com/language/translate/v2",
-          dataType: "json",
+  //        dataType: "json",
           data: {
             q: source_text,
             source: source_lang,
             target: target_lang,
             key: api_key
           },
-          jsonp: "json_callback",
+  //        jsonp: "json_callback",
           success: function(data) {
             console.log('Success getting translation data.');
             translated_text = [data.data.translations[0].translatedText];
